@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: #eb5d1e;
+  color: #001F8E;
   text-decoration: none;
 }
 
@@ -57,8 +57,11 @@ h6,
 }
 
 .back-to-top:hover {
-  background: #ee7843;
-  color: #fff;
+  background: rgb(227, 227, 255);
+  color: #001F8E;
+}
+.back-to-top i:hover{
+  color: #001F8E
 }
 
 .back-to-top.active {
@@ -573,7 +576,7 @@ section {
 .news i {
   font-size: 48px;
   margin-top: 15px;
-  color: #f39e7a;
+  color: #4e4039;
 }
 
 .news p {
@@ -604,8 +607,8 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: rgb(0, 0, 0);
-  padding: 0 0 30px 0;
+  background: rgb(255, 255, 255);
+  padding: 0 0 px 0;
   color: #ffffff;
   font-size: 14px;
   background: #fef8f5;
@@ -614,7 +617,7 @@ section {
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
 }
 
 #footer .footer-top .footer-contact {
@@ -634,13 +637,13 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #eeeeee;
+  color: #000000;
 }
 
-#footer .footer-top h4 {
+#footer .footer-top h3 {
   font-size: 16px;
   font-weight: bold;
-  color: #eeeeee;
+  color: #000000;
   position: relative;
   padding-bottom: 12px;
 }
@@ -661,7 +664,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #f39e7a;
+  color: #ffffff;
   font-size: 18px;
   line-height: 1;
 }
@@ -677,7 +680,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #5c5c5c;
+  color: #000000;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -722,12 +725,12 @@ section {
 }
 
 #footer .credits a {
-  color: #eb5d1e;
+  color: #ffffff;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 768px) {
 
-  #footer .copyright,
+  #footer .copyright,#footer .footer-top,
   #footer .credits {
     float: none;
     -moz-text-align-last: center;
