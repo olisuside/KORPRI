@@ -1,3 +1,8 @@
+<?php 
+session_start();
+include('includes/config.php');
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,7 @@
 
   <!-- Favicons -->
   <link href="assets/img/logoskh.png" rel="icon">
-
+ 
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
@@ -101,17 +106,7 @@
               <div class="card-body">
                 <h4 class="card-title">Kegiatan hari ini
                 </h4>
-                <p>
-                  <!--category-->
-                  <a class="badge bg-secondary text-decoration-none link-light"
-                    href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#fff">
-                    <?php echo htmlentities($row['category']); ?>
-                  </a>
-                  <!--Subcategory--->
-                  <a class="badge bg-secondary text-decoration-none link-light" style="color:#fff">
-                    <?php echo htmlentities($row['subcategory']); ?>
-                  </a>
-                </p>
+                
 
                 <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-light">Read More
                   &rarr;</a>
@@ -129,17 +124,6 @@
               <div class="card-body">
                 <h4 class="card-title">Kegiatan hari ini
                 </h4>
-                <p>
-                  <!--category-->
-                  <a class="badge bg-secondary text-decoration-none link-light"
-                    href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#fff">
-                    <?php echo htmlentities($row['category']); ?>
-                  </a>
-                  <!--Subcategory--->
-                  <a class="badge bg-secondary text-decoration-none link-light" style="color:#fff">
-                    <?php echo htmlentities($row['subcategory']); ?>
-                  </a>
-                </p>
 
                 <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-light">Read More
                   &rarr;</a>
