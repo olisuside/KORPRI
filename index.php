@@ -131,7 +131,7 @@ include('includes/config.php');
           </div>
 
 
-          <!-- Sidebar Widgets Column -->
+          <!-- Pengumuman Column -->
           <div class="col-md-4">
             <h3 data-aos="fade-up">PENGUMUMAN</h3>
             <div class="card mb-4" data-aos="fade-up">
@@ -178,31 +178,8 @@ include('includes/config.php');
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" >
-    <div class="footer-top">
-      <div class="container mx-lg-auto justify-content-center">
-        <div class="row">
-          <div class="col-lg-6 col-md-6 footer-contact">
-            <h3>KORPRI SUKOHARJO</h3>
-            <p>(0271) 593 068 <br>
-              Jl. adjfhafhadfsjagbajsg</p>
-          </div>
-          <div class="col-lg-6 col-md-6 footer-links">
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    </footer><!-- End Footer -->
+<!-- Footer -->
+<?php include('includes/footer.php');?>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
