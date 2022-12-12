@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
 include('includes/config.php');
 
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +16,9 @@ include('includes/config.php');
 
   <!-- Favicons -->
   <link href="assets/img/logoskh.png" rel="icon">
- 
+
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -37,7 +35,7 @@ include('includes/config.php');
 <body>
 
   <!-- Header -->
-  <?php include('includes/header.php');?>
+  <?php include('includes/header.php'); ?>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
@@ -70,12 +68,11 @@ include('includes/config.php');
           <div class="col-md-7">
             <h3 data-aos="fade-up">KEGIATAN TERBARU</h3>
             <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;"
-                src="assets/img/post/asn.jpg" alt="asn">
+              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;" src="assets/img/post/asn.jpg" alt="asn">
               <div class="card-body">
                 <h4 class="card-title">Kegiatan hari ini
                 </h4>
-                
+
 
                 <a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>" class="btn btn-light">Read More
                   &rarr;</a>
@@ -88,8 +85,7 @@ include('includes/config.php');
 
             </div>
             <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;"
-                src="assets/img/post/asn.jpg" alt="asn">
+              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;" src="assets/img/post/asn.jpg" alt="asn">
               <div class="card-body">
                 <h4 class="card-title">Kegiatan hari ini
                 </h4>
@@ -109,22 +105,22 @@ include('includes/config.php');
             <ul class="pagination justify-content-center mb-4">
               <li class="page-item"><a href="?pageno=1" class="page-link">First</a></li>
               <li class="<?php if ($pageno <= 1) {
-                    echo 'disabled';
-                  } ?> page-item">
+                            echo 'disabled';
+                          } ?> page-item">
                 <a href="<?php if ($pageno <= 1) {
-                    echo '#';
-                  } else {
-                    echo " ?pageno=" . ($pageno - 1);
-                  } ?>" class="page-link">Prev</a>
+                            echo '#';
+                          } else {
+                            echo " ?pageno=" . ($pageno - 1);
+                          } ?>" class="page-link">Prev</a>
               </li>
               <li class="<?php if ($pageno >= $total_pages) {
-                    echo 'disabled';
-                  } ?> page-item">
+                            echo 'disabled';
+                          } ?> page-item">
                 <a href="<?php if ($pageno >= $total_pages) {
-                    echo '#';
-                  } else {
-                    echo " ?pageno=" . ($pageno + 1);
-                  } ?> " class="page-link">Next</a>
+                            echo '#';
+                          } else {
+                            echo " ?pageno=" . ($pageno + 1);
+                          } ?> " class="page-link">Next</a>
               </li>
               <li class="page-item"><a href="?pageno=<?php echo $total_pages; ?>" class="page-link">Last</a></li>
             </ul>
@@ -135,8 +131,7 @@ include('includes/config.php');
           <div class="col-md-4">
             <h3 data-aos="fade-up">PENGUMUMAN</h3>
             <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 250px; object-fit:cover; width: 100%;"
-                src="assets/img/post/asn.jpg" alt="asn">
+              <img class="card-img-top img-fluid" style="max-height: 250px; object-fit:cover; width: 100%;" src="assets/img/post/asn.jpg" alt="asn">
               <div class="card-body">
                 <h4 class="card-title"><a href="news-details.php?nid=<?php echo htmlentities($row['pid']) ?>">Pengumuman</a>
                 </h4>
@@ -148,7 +143,7 @@ include('includes/config.php');
               </div>
 
             </div>
-            
+
             <!-- Search Widget -->
             <div class="card mb-4">
               <h5 class="card-header">Search</h5>
@@ -165,7 +160,7 @@ include('includes/config.php');
             </div>
           </div>
 
-          
+
         </div>
 
       </div>
@@ -178,11 +173,10 @@ include('includes/config.php');
 
   </main><!-- End #main -->
 
-<!-- Footer -->
-<?php include('includes/footer.php');?>
+  <!-- Footer -->
+  <?php include('includes/footer.php'); ?>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/aos/aos.js"></script>
