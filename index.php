@@ -102,7 +102,7 @@ include('includes/config.php');
             <!-- Pagination -->
 
 
-            <ul class="pagination justify-content-center mb-4">
+            <ul class="pagination justify-content-center mb-4" data-aos="fade-up">
               <li class="page-item"><a href="?pageno=1" class="page-link">First</a></li>
               <li class="<?php if ($pageno <= 1) {
                             echo 'disabled';
