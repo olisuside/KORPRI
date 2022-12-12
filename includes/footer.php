@@ -1,5 +1,6 @@
+  
   <!-- ======= Footer ======= -->
-  <footer class="bg-dark" id="footer" >
+  <footer id="footer" >
     <div class="footer-top">
       <div class="container mx-lg-auto justify-content-center">
         <div class="row">
