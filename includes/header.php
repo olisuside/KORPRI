@@ -11,10 +11,10 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">BERANDA</a></li>
+          <li><a class="nav-link scrollto active" href="index.php">BERANDA</a></li>
           <li class="dropdown"><a href="#"><span>PROFIL </span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">SEJARAH KORPRI</a></li>
+              <li><a href="sejarah.php">SEJARAH KORPRI</a></li>
               <li><a href="#">DASAR HUKUM</a></li>
               <li><a href="#">VISI DAN MISI</a></li>
               <li><a href="#">STRUKTUR ORGANISASI</a></li>
