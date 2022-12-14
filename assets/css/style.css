@@ -14,7 +14,7 @@ body {
 }
 
 a {
-  color: #001F8E;
+  color: #001f8e;
   text-decoration: none;
 }
 
@@ -43,7 +43,7 @@ h6,
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #001F8E;
+  background: #001f8e;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -58,10 +58,10 @@ h6,
 
 .back-to-top:hover {
   background: rgb(227, 227, 255);
-  color: #001F8E;
+  color: #001f8e;
 }
-.back-to-top i:hover{
-  color: #001F8E
+.back-to-top i:hover {
+  color: #001f8e;
 }
 
 .back-to-top.active {
@@ -100,7 +100,7 @@ h6,
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
-  color: #001F8E;
+  color: #001f8e;
   text-decoration: none;
 }
 
@@ -158,13 +158,13 @@ h6,
 .navbar a:hover,
 .navbar .active,
 .navbar .active:focus,
-.navbar li:hover>a {
-  color: #001F8E;
+.navbar li:hover > a {
+  color: #001f8e;
 }
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-  background: #001F8E;
+  background: #001f8e;
   color: #fff;
   padding: 10px 25px;
   margin-left: 30px;
@@ -174,7 +174,7 @@ h6,
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
   color: #fff;
-  background: #001F8E;
+  background: #001f8e;
 }
 
 .navbar .dropdown ul {
@@ -208,11 +208,11 @@ h6,
 
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
-.navbar .dropdown ul li:hover>a {
+.navbar .dropdown ul li:hover > a {
   color: #00114d;
 }
 
-.navbar .dropdown:hover>ul {
+.navbar .dropdown:hover > ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
@@ -224,7 +224,7 @@ h6,
   visibility: hidden;
 }
 
-.navbar .dropdown .dropdown:hover>ul {
+.navbar .dropdown .dropdown:hover > ul {
   opacity: 1;
   top: 0;
   left: 100%;
@@ -236,7 +236,7 @@ h6,
     left: -90%;
   }
 
-  .navbar .dropdown .dropdown:hover>ul {
+  .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
 }
@@ -306,8 +306,8 @@ h6,
 
 .navbar-mobile a:hover,
 .navbar-mobile .active,
-.navbar-mobile li:hover>a {
-  color: #001F8E;
+.navbar-mobile li:hover > a {
+  color: #001f8e;
 }
 
 .navbar-mobile .getstarted,
@@ -341,11 +341,11 @@ h6,
 
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
-.navbar-mobile .dropdown ul li:hover>a {
-  color: #001F8E;
+.navbar-mobile .dropdown ul li:hover > a {
+  color: #001f8e;
 }
 
-.navbar-mobile .dropdown>.dropdown-active {
+.navbar-mobile .dropdown > .dropdown-active {
   display: block;
 }
 
@@ -355,8 +355,12 @@ h6,
 #hero {
   width: 100%;
   height: 90vh;
-  background: rgb(0,35,157);
-  background: linear-gradient(135deg, rgba(0,35,157,1) 0%, rgba(0,0,0,1) 100%);
+  background: rgb(0, 35, 157);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 35, 157, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
   border-bottom: 2px solid #fcebe3;
   margin: 72px 0 -72px 0;
 }
@@ -539,11 +543,11 @@ section {
   font-size: 14px;
 }
 
-.breadcrumbs ol li+li {
+.breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.breadcrumbs ol li+li::before {
+.breadcrumbs ol li + li::before {
   display: inline-block;
   padding-right: 10px;
   color: #6c757d;
@@ -606,9 +610,6 @@ section {
   }
 }
 
-
-
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -618,7 +619,6 @@ section {
   color: #ffffff;
   font-size: 14px;
   background: #fef8f5;
-
 }
 
 #footer .footer-top {
@@ -659,7 +659,6 @@ section {
   float: right;
   text-align: right;
   font-size: 13px;
-  
 }
 
 #footer .footer-top .footer-links ul {
@@ -694,14 +693,14 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #001F8E;
+  color: #001f8e;
 }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
   background: #eeeeee;
-  color: #001F8E;
+  color: #001f8e;
   line-height: 1;
   padding: 8px 0;
   margin-right: 4px;
@@ -735,8 +734,8 @@ section {
 }
 
 @media (max-width: 768px) {
-
-  #footer .copyright,#footer .footer-top,
+  #footer .copyright,
+  #footer .footer-top,
   #footer .footer-top {
     float: none;
     -moz-text-align-last: center;
@@ -744,5 +743,3 @@ section {
     padding: 2rem 0;
   }
 }
-
-
