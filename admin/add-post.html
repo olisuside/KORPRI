@@ -175,12 +175,12 @@
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link " data-bs-target="#kegiatan-nav" data-bs-toggle="collapse" href="#">
+        <a class="nav-link collapsed" data-bs-target="#kegiatan-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Kegiatan Terbaru</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="kegiatan-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="add-post.html">
               <i class="bi bi-plus-circle"></i><span>Add Post</span>
             </a>
           </li>
@@ -201,7 +201,7 @@
         </a>
         <ul id="pengumuman-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="components-alerts.html">
+            <a href="add-post.html">
               <i class="bi bi-plus-circle"></i><span>Add Post</span>
             </a>
           </li>
@@ -450,11 +450,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Tambah Kegiatan</h1>
+      <h1>Tambah Postingan</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Tambah Kegiatan</li>
+          <li class="breadcrumb-item active">Tambah Postingan</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -472,8 +472,18 @@
                   <label for="inputName5" class="form-label">Judul</label>
                   <input type="text" class="form-control" id="inputName5">
                 </div>
+                <div class="col-md-12">
+                  <label class="col-sm-2 col-form-label">Kategori</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">Pengumuman</option>
+                    <option value="2">Kegiatan</option>
 
-             
+                  </select>
+
+                </div>
+
+
                 <div class="col-md-12">
                   <label for="inputName5" class="form-label">Isi Berita</label>
                   <textarea id="basic-example">
@@ -483,11 +493,11 @@
 
                 <div class="col-md-12">
                   <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
-                  
-                    <input class="form-control" type="file" id="formFile">
-                  
+
+                  <input class="form-control" type="file" id="formFile">
+
                 </div>
-                
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>
