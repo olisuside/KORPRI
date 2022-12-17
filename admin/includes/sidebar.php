@@ -1,7 +1,7 @@
 <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link collapsed" href="index.php">
             <i class="bi bi-grid"></i>
             <span>Dashboard</span>
           </a>
@@ -28,7 +28,7 @@
               </a>
             </li>
             <li>
-              <a href="managepost.php">
+              <a href="manage-post.php">
                 <i class="bi bi-pencil"></i><span>Manage Post</span>
               </a>
             </li>
