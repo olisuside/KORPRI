@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Des 2022 pada 15.53
+-- Waktu pembuatan: 17 Des 2022 pada 21.28
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.1.12
 
@@ -45,6 +45,13 @@ CREATE TABLE `tbladmin` (
   `AdminEmail` varchar(255) DEFAULT NULL,
   `UserType` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbladmin`
+--
+
+INSERT INTO `tbladmin` (`id`, `UserName`, `AdminPassword`, `AdminEmail`, `UserType`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@email.com', 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +108,7 @@ ALTER TABLE `tblpost`
 -- AUTO_INCREMENT untuk tabel `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tblpost`

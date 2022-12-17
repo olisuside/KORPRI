@@ -1,7 +1,11 @@
 <?php
 session_start();
 include('includes/config.php');
-
+if(empty($_SESSION['logged_in']))
+{
+    header('location:login.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
