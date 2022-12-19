@@ -106,6 +106,7 @@ include('includes/config.php');
 
         <div class="pagetitle">
             <h1>Tambah Postingan</h1>
+            
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -121,8 +122,10 @@ include('includes/config.php');
                 <div class="col-lg-12 ">
                     <div class="card justify-content-center">
                         <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-center">
                             <h5 class="card-title">Table with hoverable rows</h5>
-
+                            <button class="btn btn-info col-md-2 mx-2">Tambah Produk</button>
+                        </div>
                             <!-- Table with hoverable rows -->
                             <table class="table table-hover">
                                 <thead>
