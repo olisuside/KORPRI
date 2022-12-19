@@ -102,7 +102,7 @@ if(isset($_POST['login'])){
                     <div id="login-alert" class="alert alert-danger col-sm-12">
                         <ul><?php echo $err ?></ul>
                     </div>
-                <?php } ?> 
+                  <?php } ?> 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
