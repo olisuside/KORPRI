@@ -162,15 +162,22 @@ $error="Something went wrong . Please try again.";
               <!-- Multi Columns Form -->
               <form class="row g-3 my-2 justify-content-center">
                 <div class="col-md-12">
-                  <label for="inputName5" class="form-label">Judul</label>
-                  <input type="text" class="form-control" id="inputName5">
+                  <label for="judul" class="form-label">Judul</label>
+                  <input type="text" class="form-control" id="posttitle">
                 </div>
                 <div class="col-md-12">
                   <label class="col-sm-2 col-form-label">Kategori</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">Pengumuman</option>
-                    <option value="2">Kegiatan</option>
+                  <select class="form-select" aria-label="Default select example" name="category" id="category" onChange="getSubCat(this.value);">
+                  <option value="">Select Category </option>
+<?php
+// Feching active categories
+$ret=mysqli_query($con,"select id,CategoryName from  tblcategory");
+while($result=mysqli_fetch_array($ret))
+{    
+?>
+<option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
+<?php } ?>
+
 
                   </select>
 
