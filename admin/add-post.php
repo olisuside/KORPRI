@@ -1,16 +1,22 @@
 <?php
 session_start();
 include('includes/config.php');
+
+if(strlen($_SESSION['login'])==0)
+  { 
+header('location:index.php');
+}
+else{
 // For adding post  
 if(isset($_POST['submit']))
 {
-$posttitle=$_POST['posttitle'];
+$posttittle=$_POST['posttittle'];
 $catid=$_POST['category'];
-$subcatid=$_POST['subcategory'];
 $postdetails=$_POST['postdescription'];
-$postedby=$_SESSION['login'];
-$arr = explode(" ",$posttitle);
+$postedby=$_SESSION['session_UserName'];
+$arr = explode(" ",$posttittle);
 $url=implode("-",$arr);
+
 $imgfile=$_FILES["postimage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
@@ -29,7 +35,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage,postedBy) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($con,"insert into tblpost(PostTittle,Category,PostDetail,PostUrl,Is_Active,PostImg,PostKegby) values('$posttittle','$catid','$postdetails','$url','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Post successfully added ";
@@ -40,6 +46,7 @@ $error="Something went wrong . Please try again.";
 
 }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +83,7 @@ $error="Something went wrong . Please try again.";
   <script src="assets/vendor/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
     tinymce.init({
-      selector: 'textarea#basic-example',
+      selector: 'textarea#postdescription',
       menubar: 'edit insert view format table tools help',
       height: 500,
       // image_title: true,
@@ -128,10 +135,149 @@ $error="Something went wrong . Please try again.";
       content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
   </script>
+  <!-- <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea#postdescription',
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table paste codesample"
+            ],
+            toolbar:
+                "undo redo | fontselect styleselect fontsizeselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample action section button | custom_button",
+            content_css: [window.location.origin+"/assets/css/custom_css_tinymce.css"],
+            font_formats:"Segoe UI=Segoe UI;",
+            fontsize_formats: "8px 9px 10px 11px 12px 14px 16px 18px 20px 22px 24px 26px 28px 30px 32px 34px 36px 38px 40px 42px 44px 46px 48px 50px 52px 54px 56px 58px 60px 62px 64px 66px 68px 70px 72px 74px 76px 78px 80px 82px 84px 86px 88px 90px 92px 94px 94px 96px",
+            codesample_languages: [
+                {text: 'HTML/XML', value: 'markup'},
+                {text: 'JavaScript', value: 'javascript'},
+                {text: 'CSS', value: 'css'},
+                {text: 'PHP', value: 'php'},
+                {text: 'Ruby', value: 'ruby'},
+                {text: 'Python', value: 'python'},
+                {text: 'Java', value: 'java'},
+                {text: 'C', value: 'c'},
+                {text: 'C#', value: 'csharp'},
+                {text: 'C++', value: 'cpp'}
+            ],
+            height: 600,
+            setup: function (editor) {
+                editor.ui.registry.addButton('custom_button', {
+                    text: 'Add Button',
+                    onAction: function() {
+                        // Open a Dialog
+                        editor.windowManager.open({
+                            title: 'Add custom button',
+                            body: {
+                                type: 'panel',
+                                items: [{
+                                    type: 'input',
+                                    name: 'button_label',
+                                    label: 'Button label',
+                                    flex: true
+                                },{
+                                    type: 'input',
+                                    name: 'button_href',
+                                    label: 'Button href',
+                                    flex: true
+                                },{
+                                    type: 'selectbox',
+                                    name: 'button_target',
+                                    label: 'Target',
+                                    items: [
+                                        {text: 'None', value: ''},
+                                        {text: 'New window', value: '_blank'},
+                                        {text: 'Self', value: '_self'},
+                                        {text: 'Parent', value: '_parent'}
+                                    ],
+                                    flex: true
+                                },{
+                                    type: 'selectbox',
+                                    name: 'button_rel',
+                                    label: 'Rel',
+                                    items: [
+                                        {text: 'No value', value: ''},
+                                        {text: 'Alternate', value: 'alternate'},
+                                        {text: 'Help', value: 'help'},
+                                        {text: 'Manifest', value: 'manifest'},
+                                        {text: 'No follow', value: 'nofollow'},
+                                        {text: 'No opener', value: 'noopener'},
+                                        {text: 'No referrer', value: 'noreferrer'},
+                                        {text: 'Opener', value: 'opener'}
+                                    ],
+                                    flex: true
+                                },{
+                                    type: 'selectbox',
+                                    name: 'button_style',
+                                    label: 'Style',
+                                    items: [
+                                        {text: 'Success', value: 'success'},
+                                        {text: 'Info', value: 'info'},
+                                        {text: 'Warning', value: 'warning'},
+                                        {text: 'Error', value: 'error'}
+                                    ],
+                                    flex: true
+                                }]
+                            },
+                            onSubmit: function (api) {
+
+                                var html = '<a href="'+api.getData().button_href+'" class="btn btn-'+api.getData().button_style+'" rel="'+api.getData().button_rel+'" target="'+api.getData().button_target+'">'+api.getData().button_label+'</a>';
+
+                                // insert markup
+                                editor.insertContent(html);
+
+                                // close the dialog
+                                api.close();
+                            },
+                            buttons: [
+                                {
+                                    text: 'Close',
+                                    type: 'cancel',
+                                    onclick: 'close'
+                                },
+                                {
+                                    text: 'Insert',
+                                    type: 'submit',
+                                    primary: true,
+                                    enabled: false
+                                }
+                            ]
+                        });
+                    }
+                });
+            }
+        });
+
+        $(document).ready(function() {
+            $('#save-content-form').on('submit', function(e) {
+                e.preventDefault();
+
+                var data = $('#save-content-form').serializeArray();
+                data.push({name: 'content', value: tinyMCE.get('tinymce').getContent()});
+
+                $.ajax({
+                    type: 'POST',
+                    url: window.location.origin+'/save.php',
+                    data: data,
+                    success: function (response, textStatus, xhr) {
+                        console.log(response)
+                    },
+                    complete: function (xhr) {
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        var response = XMLHttpRequest;
+
+                    }
+                }); 
+            });
+        });
+    </script> -->
 
 </head>
 
 <body>
+
 
   <!-- ======= Header ======= -->
   <?php include('includes/header.php'); ?>
@@ -159,15 +305,27 @@ $error="Something went wrong . Please try again.";
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
+              <!---Success Message--->  
+<?php if($msg){ ?>
+<div class="alert alert-success" role="alert">
+<strong>Well done!</strong> <?php echo htmlentities($msg);?>
+</div>
+<?php } ?>
+
+<!---Error Message--->
+<?php if($error){ ?>
+<div class="alert alert-danger" role="alert">
+<strong>Oh snap!</strong> <?php echo htmlentities($error);?></div>
+<?php } ?>
               <!-- Multi Columns Form -->
-              <form class="row g-3 my-2 justify-content-center">
+              <form name="addpost" method="post" enctype="multipart/form-data" class="row g-3 my-2 justify-content-center">
                 <div class="col-md-12">
                   <label for="judul" class="form-label">Judul</label>
-                  <input type="text" class="form-control" id="posttitle">
+                  <input type="text" class="form-control" id="posttittle" name="posttittle" required>
                 </div>
                 <div class="col-md-12">
                   <label class="col-sm-2 col-form-label">Kategori</label>
-                  <select class="form-select" aria-label="Default select example" name="category" id="category" onChange="getSubCat(this.value);">
+                  <select class="form-select" aria-label="Default select example" name="category" id="category" onChange="getSubCat(this.value);" required>
                   <option value="">Select Category </option>
 <?php
 // Feching active categories
@@ -186,7 +344,7 @@ while($result=mysqli_fetch_array($ret))
 
                 <div class="col-md-12">
                   <label for="inputName5" class="form-label">Isi Berita</label>
-                  <textarea id="basic-example">
+                  <textarea id="postdescription" name="postdescription" required>
 
                 </textarea>
                 </div>
@@ -194,12 +352,12 @@ while($result=mysqli_fetch_array($ret))
                 <div class="col-md-12">
                   <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
 
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="formFile" id="postimage" name="postimage" required>
 
                 </div>
 
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- End Multi Columns Form -->
@@ -247,3 +405,4 @@ while($result=mysqli_fetch_array($ret))
 </body>
 
 </html>
+<?php } ?>
