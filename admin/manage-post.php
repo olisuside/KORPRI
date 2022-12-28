@@ -162,7 +162,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                     <td><?php echo htmlentities($row['title']); ?></td>
 
-                                                    <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']); ?>"><i class="bi bi-pencil-fill" style="color: #29b6f6;"></i></a>
+                                                    <td><a href="edit-post.php?id=<?php echo htmlentities($row['postid']); ?>"><i class="bi bi-pencil-fill" style="color: #29b6f6;"></i></a>
                                                         &nbsp;<a href="remove.php?id=<?php echo htmlentities($row['postid']); ?>" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="bi bi-trash" style="color: #f05050"></i></a> </td>
 
                                                 </tr>

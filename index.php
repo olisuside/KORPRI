@@ -37,7 +37,7 @@ include('includes/config.php');
   <!-- Header -->
   <?php include('includes/header.php'); ?>
 
-  <!-- ======= Hero Section ======= -->
+  <!-- ======= Hero Section ======= --> 
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
