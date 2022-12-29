@@ -293,7 +293,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="alert alert-success my-2" role="alert">
                                         <strong>Well done!</strong> <?php echo htmlentities($msg); ?>
                                     </div>
-                                    <meta http-equiv='refresh' content='2; url= add-post.php' />
+                                    <meta http-equiv='refresh' content='2; url= manage-post.php' />
                                 <?php } ?>
 
                                 <!---Error Message--->
@@ -301,7 +301,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     <div class="alert alert-danger my-2" role="alert">
                                         <strong>Oh snap!</strong> <?php echo htmlentities($error); ?>
                                     </div>
-                                    <meta http-equiv='refresh' content='2; url= add-post.php' />
+                                    <meta http-equiv='refresh' content='2; url= manage-post.php' />
                                 <?php } ?>
                
                                 <!-- Multi Columns Form -->
@@ -334,13 +334,13 @@ if (strlen($_SESSION['login']) == 0) {
 
                                     <div class="col-md-12">
                                         <label for="inputNumber" class="col-sm-2 col-form-label">File Upload</label>
-
-                                        <input class="form-control" type="file" id="formFile" id="postimage" name="postimage" required>
-
+                                        <img src="postimages/<?php echo htmlentities($row['PostImg']); ?>" width="300" />
+                                        
+                                        <a href="change-image.php?id=<?php echo htmlentities($row['postid']); ?>">Update Image</a>
                                     </div>
 
                                     <div class="text-center">
-                                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" name="update" class="btn btn-primary">update</button>
                                         <button type="reset" class="btn btn-secondary">Reset</button>
                                     </div>
                                 </form><!-- End Multi Columns Form -->
