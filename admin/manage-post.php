@@ -134,23 +134,24 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="table-responsive text-nowrap">
 
                                     <!-- Table with hoverable rows -->
-                                    <table class="table table-hover">
+                                    <table class="table table-hover ">
                                         <thead>
-                                            <tr>
-                                                <th scope="col">Judul Kegiatan</th>
+                                            <tr class="table-dark">
+                                                <th class="class=w-75" scope="col">Judul Kegiatan</th>
+                                                <th scope="col">Gambar</th>
 
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $query = mysqli_query($con, "SELECT id as postid,PostTittle as title from tblpost where Is_Active=1 ");
+                                            $query = mysqli_query($con, "SELECT id as postid,PostImg,PostTittle as title from tblpost where Is_Active=1 and Category=1");
                                             $rowcount = mysqli_num_rows($query);
                                             if ($rowcount == 0) {
                                             ?>
                                                 <tr>
 
-                                                    <td colspan="4" align="center">
+                                                    <td colspan="3" align="center">
                                                         <h3 style="color:red">No record found</h3>
                                                     </td>
                                                 <tr>
@@ -160,8 +161,8 @@ if (strlen($_SESSION['login']) == 0) {
                                                     ?>
                                                 <tr>
 
-                                                    <td><?php echo htmlentities($row['title']); ?></td>
-
+                                                    <td class="w-75"><?php echo htmlentities($row['title']); ?></td>
+                                                    <td><img src="postimages/<?php echo htmlentities($row['PostImg']); ?>" height="100" /></td>
                                                     <td><a href="edit-post.php?id=<?php echo htmlentities($row['postid']); ?>"><i class="bi bi-pencil-fill" style="color: #29b6f6;"></i></a>
                                                         &nbsp;<a href="remove.php?id=<?php echo htmlentities($row['postid']); ?>" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="bi bi-trash" style="color: #f05050"></i></a> </td>
 

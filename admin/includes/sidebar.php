@@ -23,17 +23,12 @@
             data-bs-parent="#sidebar-nav"
           >
             <li>
-              <a href="add-post.php">
-                <i class="bi bi-plus-circle"></i><span>Add Post</span>
-              </a>
-            </li>
-            <li>
               <a href="manage-post.php">
                 <i class="bi bi-pencil"></i><span>Manage Post</span>
               </a>
             </li>
             <li>
-              <a href="components-badges.html">
+              <a href="post-trash.php">
                 <i class="bi bi-trash"></i><span>Trash</span>
               </a>
             </li>
@@ -56,17 +51,12 @@
             data-bs-parent="#sidebar-nav"
           >
             <li>
-              <a href="components-alerts.html">
-                <i class="bi bi-plus-circle"></i><span>Add Post</span>
-              </a>
-            </li>
-            <li>
-              <a href="components-accordion.html">
+              <a href="manage-announcement.php">
                 <i class="bi bi-pencil"></i><span>Manage Post</span>
               </a>
             </li>
             <li>
-              <a href="components-badges.html">
+              <a href="announcement-trash.php">
                 <i class="bi bi-trash"></i><span>Trash</span>
               </a>
             </li>
