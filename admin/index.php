@@ -1,14 +1,14 @@
 <?php
 session_start();
 include('includes/config.php');
-
+error_reporting(0);
 //atur variabel
 $err        = "";
 $UserName   = "";
 
 if(isset($_POST['login'])){
-  $UserName   = $_POST['UserName'];
-  $AdminPassword   = $_POST['AdminPassword'];
+  $UserName   = mysqli_real_escape_string($con,$_POST['UserName']);
+  $AdminPassword   = mysqli_real_escape_string($con,$_POST['AdminPassword']);
 
   if($UserName == '' or $AdminPassword == ''){
       $err .= "<li>Silakan masukkan UserName dan juga Password.</li>";

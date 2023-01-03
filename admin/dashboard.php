@@ -146,6 +146,9 @@ else{
       </section>
     </main>
     <!-- End #main -->
+<!-- ======= Footer ======= -->
+<?php include('includes/footer.php'); ?>
+    <!-- End Footer -->
 
     <a
       href="#"

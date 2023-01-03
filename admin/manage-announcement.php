@@ -164,7 +164,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     <td class="w-75"><?php echo htmlentities($row['title']); ?></td>
                                                     <td><img src="postimages/<?php echo htmlentities($row['PostImg']); ?>" height="100" /></td>
                                                     <td><a href="edit-post.php?id=<?php echo htmlentities($row['postid']); ?>"><i class="bi bi-pencil-fill" style="color: #29b6f6;"></i></a>
-                                                        &nbsp;<a href="remove.php?id=<?php echo htmlentities($row['postid']); ?>" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="bi bi-trash" style="color: #f05050"></i></a> </td>
+                                                        &nbsp;<a href="remove-announcement.php?id=<?php echo htmlentities($row['postid']); ?>" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="bi bi-trash" style="color: #f05050"></i></a> </td>
 
                                                 </tr>
 
@@ -185,18 +185,9 @@ if (strlen($_SESSION['login']) == 0) {
         </main><!-- End #main -->
 
         <!-- ======= Footer ======= -->
-        <footer id="footer" class="footer">
-            <div class="copyright">
-                &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </footer><!-- End Footer -->
+    <?php include('includes/footer.php'); ?>
+    <!-- End Footer -->
+
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
