@@ -1,3 +1,8 @@
+<?php
+session_start();
+include('includes/config.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +48,7 @@
           <!-- Blog Entries Column -->
         <div class="col-md-9">
             <h3><strong> SEJARAH KORPRI</strong></h3><br>
-            <img class="hero-img" style="max-height: 380px; object-fit:cover; width: 75%;" src="assets/img/logo.png" alt="asn">
+            <img class="hero-img justify-content-center" style="max-height: 380px; object-fit:cover; width: 100%;" src="assets/img/logo.png" alt="asn">
             <div class="card-body">
                 <p>
                     Korps Pegawai Republik Indonesia atau biasa dikenal KORPRI berdiri berdasarkan Keputusan Presiden
