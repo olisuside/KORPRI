@@ -79,7 +79,7 @@ while ($row=mysqli_fetch_array($query)) {
                 </h4>
 
 
-                <a href="news-details.php?id=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
+                <a href="inner-page.php?id=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
                   &rarr;</a>
               </div>
               <div class="ms-2 text-muted">

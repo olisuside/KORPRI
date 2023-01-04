@@ -11,7 +11,7 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="index.php">BERANDA</a></li>
+                <li><a class="nav-link scrollto" href="index.php">BERANDA</a></li>
                 <li class="dropdown"><a href="#"><span>PROFIL </span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="sejarah.php">SEJARAH KORPRI</a></li>
@@ -22,9 +22,9 @@
                         <li><a href="#">TUGAS POKOK DAN FUNGSI</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto" href="kegiatan.html">KEGIATAN</a></li>
+                <li><a class="nav-link scrollto" href="kegiatan.php">KEGIATAN</a></li>
                 <li><a class="nav-link scrollto" href="#services">GALERI</a></li>
-                <li><a class="nav-link scrollto" href="#portfolio">PENGUMUMAN</a></li>
+                <li><a class="nav-link scrollto" href="pengumuman.php">PENGUMUMAN</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
