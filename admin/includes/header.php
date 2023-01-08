@@ -7,7 +7,7 @@ if ($row = mysqli_fetch_array($query)) {
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
       <i class="bi bi-list toggle-sidebar-btn"></i>
-      <a href="index.php" class="logo d-flex align-items-center">
+      <a href="../" class="logo d-flex align-items-center">
         <img src="assets/img/logoskh.png" alt="" />
         <span class="d-none d-lg-block">KORPRI SUKOHARJO</span>
       </a>
@@ -25,38 +25,12 @@ if ($row = mysqli_fetch_array($query)) {
             <li class="dropdown-header">
               <h6><?php echo htmlentities($row['UserName']); ?></h6>
             </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="change-password.php">
                 <i class="bi bi-gear"></i>
                 <span>Change Password</span>
               </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider" />
             </li>
 
             <li>
