@@ -73,7 +73,7 @@ while ($row=mysqli_fetch_array($query)) {
           <!-- Blog Entries Column -->
          
             <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']);?>" alt="asn">
+              <img class="card-img-top img-fluid" style="max-height: 350px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']);?>" alt="asn">
               <div class="card-body">
                 <h4 class="card-title"><?php echo htmlentities($row['tittle']);?>
                 </h4>

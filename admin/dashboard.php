@@ -6,6 +6,7 @@ if(strlen($_SESSION['login'])==0)
 header('location:index.php');
 }
 else{
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,9 +81,13 @@ else{
           <!-- Left side columns -->
           <div class="col-lg-12">
             <div class="row">
+            
               <!-- Kegiatan Card -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
+                <?php $query=mysqli_query($con,"SELECT * from tblpost where Is_Active=1 and Category=1");
+$countpost=mysqli_num_rows($query);
+?>
                   <div class="card-body">
                     <h5 class="card-title">Kegiatan</h5>
                     <div class="d-flex align-items-center">
@@ -92,7 +97,7 @@ else{
                         <i class="bi bi-calendar-week"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>145</h6>
+                        <h6><?php echo htmlentities($countpost);?></h6>
                       </div>
                     </div>
                   </div>
@@ -103,6 +108,9 @@ else{
               <!-- Pengumuman Card -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
+                <?php $query=mysqli_query($con,"SELECT * from tblpost where Is_Active=1 and Category=4");
+$countan=mysqli_num_rows($query);
+?>
                   <div class="card-body">
                     <h5 class="card-title">Pengumuman</h5>
                     <div class="d-flex align-items-center">
@@ -112,7 +120,7 @@ else{
                         <i class="bi bi-envelope"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>145</h6>
+                        <h6><?php echo htmlentities($countan);?></h6>
                       </div>
                     </div>
                   </div>
@@ -123,6 +131,9 @@ else{
               <!-- Trash Card -->
               <div class="col-xxl-4 col-md-6">
                 <div class="card info-card sales-card">
+                <?php $query=mysqli_query($con,"SELECT * from tblpost where Is_Active=0");
+$counttrash=mysqli_num_rows($query);
+?>
                   <div class="card-body">
                     <h5 class="card-title">Trash</h5>
                     <div class="d-flex align-items-center">
@@ -132,7 +143,7 @@ else{
                         <i class="bi bi-trash"></i>
                       </div>
                       <div class="ps-3">
-                        <h6>145</h6>
+                        <h6><?php echo htmlentities($counttrash);?></h6>
                       </div>
                     </div>
                   </div>

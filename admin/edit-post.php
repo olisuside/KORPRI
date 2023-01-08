@@ -5,9 +5,7 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-    $postid = $_GET['id'];
-    $que = mysqli_query($con, "SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.id='$postid' AND tblpost.Is_Active=1 ");
-    $row = mysqli_fetch_array($que);
+    
     // For adding post  
     if (isset($_POST['update'])) {
 
@@ -98,7 +96,11 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="card">
                             <div class="card-body">
                                 <!---Success Message--->
-
+                                <?php 
+                                $postid = $_GET['id'];
+    $que = mysqli_query($con, "SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.id='$postid' AND tblpost.Is_Active=1 ");
+    $row = mysqli_fetch_array($que);
+    ?>
                                 <?php if ($msg) { ?>
 
                                     <div class="alert alert-success my-2" role="alert">
