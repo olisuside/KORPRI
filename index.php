@@ -37,7 +37,7 @@ include('includes/config.php');
   <!-- Header -->
   <?php include('includes/header.php'); ?>
 
-  <!-- ======= Hero Section ======= --> 
+  <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
     <div class="container">
@@ -61,50 +61,64 @@ include('includes/config.php');
     <!-- berita terbaru -->
     <section id="news" class="news">
       <div class="container">
-      <div class="row justify-content-center" style="margin-top: 4%">
-      <div class="col-md-7">
+        <div class="row justify-content-center" style="margin-top: 4%">
+          <div class="col-md-7">
             <h3 data-aos="fade-up">KEGIATAN TERBARU</h3>
-<?php 
-     if (isset($_GET['pageno'])) {
-            $pageno = $_GET['pageno'];
-        } else {
-            $pageno = 1;
-        }
-        $no_of_records_per_page = 8;
-        $offset = ($pageno-1) * $no_of_records_per_page;
+            <?php
+            if (isset($_GET['pageno'])) {
+              $pageno = $_GET['pageno'];
+            } else {
+              $pageno = 1;
+            }
+            $no_of_records_per_page = 8;
+            $offset = ($pageno - 1) * $no_of_records_per_page;
 
 
-        $total_pages_sql = "SELECT COUNT(*) FROM tblpost";
-        $result = mysqli_query($con,$total_pages_sql);
-        $total_rows = mysqli_fetch_array($result)[0];
-        $total_pages = ceil($total_rows / $no_of_records_per_page);
+            $total_pages_sql = "SELECT COUNT(*) FROM tblpost";
+            $result = mysqli_query($con, $total_pages_sql);
+            $total_rows = mysqli_fetch_array($result)[0];
+            $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-$query=mysqli_query($con,"SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=1 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
-while ($row=mysqli_fetch_array($query)) {
-?>
-        
+            $query = mysqli_query($con, "SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=1 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
+            $rowcount = mysqli_num_rows($query);
+            if ($rowcount == 0) {
+            ?>
 
-          <!-- Blog Entries Column -->
-         
-            <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']);?>" alt="asn">
-              <div class="card-body">
-                <h4 class="card-title"><?php echo htmlentities($row['tittle']);?>
-                </h4>
-
-
-                <a href="news-details.php?nid=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
-                  &rarr;</a>
-              </div>
-              <div class="ms-2 text-muted">
-                Posted on
-                <?php echo htmlentities($row['PostDate']); ?>
-
+              <div class="card mb-4" data-aos="fade-up">
+                <div class="card-body">
+                  <h4 class="card-title">TIDAK TERSEDIA
+                  </h4>
+                </div>
               </div>
 
-            </div>
-            <?php } ?>
+              <?php
+            } else {
+              while ($row = mysqli_fetch_array($query)) {
+              ?>
+
+
+                <!-- Blog Entries Column -->
+
+                <div class="card mb-4" data-aos="fade-up">
+                  <img class="card-img-top img-fluid" style="max-height: 300px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']); ?>" alt="asn">
+                  <div class="card-body">
+                    <h4 class="card-title"><?php echo htmlentities($row['tittle']); ?>
+                    </h4>
+
+
+                    <a href="news-details.php?nid=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
+                      &rarr;</a>
+                  </div>
+                  <div class="ms-2 text-muted">
+                    Posted on
+                    <?php echo htmlentities($row['PostDate']); ?>
+
+                  </div>
+
+                </div>
+            <?php }
+            } ?>
             <!-- Pagination -->
 
 
@@ -136,34 +150,48 @@ while ($row=mysqli_fetch_array($query)) {
           <!-- Pengumuman Column -->
           <div class="col-md-4">
             <h3 data-aos="fade-up">PENGUMUMAN</h3>
-            <?php 
-     if (isset($_GET['pageno'])) {
-            $pageno = $_GET['pageno'];
-        } else {
-            $pageno = 1;
-        }
-        $no_of_records_per_page = 3;
-        $offset = ($pageno-1) * $no_of_records_per_page;
+            <?php
+            if (isset($_GET['pageno'])) {
+              $pageno = $_GET['pageno'];
+            } else {
+              $pageno = 1;
+            }
+            $no_of_records_per_page = 3;
+            $offset = ($pageno - 1) * $no_of_records_per_page;
 
 
-$query=mysqli_query($con,"SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=4 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
-while ($row=mysqli_fetch_array($query)) {
-?>
-            <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 110px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']);?>" alt="asn">
-              <div class="card-body">
-                <h4 class="card-title"><a href="news-details.php?nid=<?php echo htmlentities($row['postid']) ?>"><?php echo htmlentities($row['tittle']);?></a>
-                </h4>
-              </div>
-              <div class="ms-2 text-muted">
-                Posted on
-                <?php echo htmlentities($row['PostDate']); ?>
+            $query = mysqli_query($con, "SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=4 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
+            $rowcount = mysqli_num_rows($query);
+            if ($rowcount == 0) {
+            ?>
 
+              <div class="card mb-4" data-aos="fade-up">
+                <div class="card-body">
+                  <h4 class="card-title">TIDAK TERSEDIA
+                  </h4>
+                </div>
               </div>
 
-            </div>
-            <?php } ?>
-             
+              <?php
+            } else {
+              while ($row = mysqli_fetch_array($query)) {
+              ?>
+                <div class="card mb-4" data-aos="fade-up">
+                  <img class="card-img-top img-fluid" style="max-height: 110px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']); ?>" alt="asn">
+                  <div class="card-body">
+                    <h4 class="card-title"><a href="news-details.php?nid=<?php echo htmlentities($row['postid']) ?>"><?php echo htmlentities($row['tittle']); ?></a>
+                    </h4>
+                  </div>
+                  <div class="ms-2 text-muted">
+                    Posted on
+                    <?php echo htmlentities($row['PostDate']); ?>
+
+                  </div>
+
+                </div>
+            <?php }
+            } ?>
+
           </div>
 
 

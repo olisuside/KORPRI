@@ -110,12 +110,12 @@ if (strlen($_SESSION['login']) == 0) {
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Kelola Postingan</h1>
+                <h1>Kelola Pengumuman</h1>
 
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Kelola Postingan</li>
+                        <li class="breadcrumb-item active">Kelola Pengumuman</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -128,8 +128,8 @@ if (strlen($_SESSION['login']) == 0) {
                         <div class="card justify-content-center">
                             <div class="card-body">
                                 <div class="d-sm-flex justify-content-between align-items-center">
-                                    <h5 class="card-title">Postingan</h5>
-                                    <a class="btn btn-primary btn-sm col-md-2 mx-2" href="add-post.php">Tambah Postingan</a>
+                                    <h5 class="card-title">Pengumuman</h5>
+                                    <a class="btn btn-primary btn-sm col-md-2 mx-2" href="add-post.php">Tambah Pengumuman</a>
                                 </div>
                                 <div class="table-responsive text-nowrap">
 

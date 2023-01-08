@@ -19,9 +19,7 @@ include('includes/config.php');
   <link href="assets/img/logoskh.png" rel="icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -49,47 +47,61 @@ include('includes/config.php');
           <!-- Blog Entries Column -->
           <div class="col-md-9">
             <h3>KEGIATAN TERBARU</h3><br>
-            <?php 
-     if (isset($_GET['pageno'])) {
-            $pageno = $_GET['pageno'];
-        } else {
-            $pageno = 1;
-        }
-        $no_of_records_per_page = 8;
-        $offset = ($pageno-1) * $no_of_records_per_page;
+            <?php
+            if (isset($_GET['pageno'])) {
+              $pageno = $_GET['pageno'];
+            } else {
+              $pageno = 1;
+            }
+            $no_of_records_per_page = 8;
+            $offset = ($pageno - 1) * $no_of_records_per_page;
 
 
-        $total_pages_sql = "SELECT COUNT(*) FROM tblpost";
-        $result = mysqli_query($con,$total_pages_sql);
-        $total_rows = mysqli_fetch_array($result)[0];
-        $total_pages = ceil($total_rows / $no_of_records_per_page);
+            $total_pages_sql = "SELECT COUNT(*) FROM tblpost";
+            $result = mysqli_query($con, $total_pages_sql);
+            $total_rows = mysqli_fetch_array($result)[0];
+            $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-$query=mysqli_query($con,"SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=1 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
-while ($row=mysqli_fetch_array($query)) {
-?>
-        
+            $query = mysqli_query($con, "SELECT tblpost.id AS postid,tblpost.PostImg,tblpost.PostTittle AS tittle,tblpost.PostDetail,tblcategory.CategoryName AS category,tblcategory.id AS catid,tblpost.Postingdetail as PostDate, tblpost.PostUrl FROM tblpost LEFT JOIN tblcategory ON tblpost.Category=tblcategory.id WHERE tblpost.Is_Active=1 AND tblpost.Category=1 order by tblpost.id desc  LIMIT $offset, $no_of_records_per_page");
+            $rowcount = mysqli_num_rows($query);
+            if ($rowcount == 0) {
+            ?>
 
-          <!-- Blog Entries Column -->
-         
-            <div class="card mb-4" data-aos="fade-up">
-              <img class="card-img-top img-fluid" style="max-height: 350px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']);?>" alt="asn">
-              <div class="card-body">
-                <h4 class="card-title"><?php echo htmlentities($row['tittle']);?>
-                </h4>
-
-
-                <a href="inner-page.php?id=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
-                  &rarr;</a>
-              </div>
-              <div class="ms-2 text-muted">
-                Posted on
-                <?php echo htmlentities($row['PostDate']); ?>
-
+              <div class="card mb-4" data-aos="fade-up">
+                <div class="card-body">
+                  <h4 class="card-title">TIDAK TERSEDIA
+                  </h4>
+                </div>
               </div>
 
-            </div>
-            <?php } ?>
+              <?php
+            } else {
+              while ($row = mysqli_fetch_array($query)) {
+              ?>
+
+
+                <!-- Blog Entries Column -->
+
+                <div class="card mb-4" data-aos="fade-up">
+                  <img class="card-img-top img-fluid" style="max-height: 350px; object-fit:cover; width: 100%;" src="admin/postimages/<?php echo htmlentities($row['PostImg']); ?>" alt="asn">
+                  <div class="card-body">
+                    <h4 class="card-title"><?php echo htmlentities($row['tittle']); ?>
+                    </h4>
+
+
+                    <a href="inner-page.php?id=<?php echo htmlentities($row['postid']) ?>" class="btn btn-light">Read More
+                      &rarr;</a>
+                  </div>
+                  <div class="ms-2 text-muted">
+                    Posted on
+                    <?php echo htmlentities($row['PostDate']); ?>
+
+                  </div>
+
+                </div>
+            <?php }
+            } ?>
             <!-- Pagination -->
 
 
@@ -118,26 +130,25 @@ while ($row=mysqli_fetch_array($query)) {
           </div>
 
 
-          </div>
-          
-        </main><!-- End #main -->
+        </div>
 
-        <!-- ======= Footer ======= -->
-        <?php include('includes/footer.php'); ?>
-      
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+  </main><!-- End #main -->
 
-<!-- Vendor JS Files -->
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- ======= Footer ======= -->
+  <?php include('includes/footer.php'); ?>
 
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </body>
 

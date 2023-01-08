@@ -109,19 +109,19 @@ $row = mysqli_fetch_array($que);
                                 <!-- Multi Columns Form -->
                                 <form name="addpost" method="post" enctype="multipart/form-data" class="row g-3 my-2 justify-content-center">
                                 <div class="col-md-12">
-                                        <label for="inputName5" class="form-label">Isi Berita</label>
+                                        <label for="inputName5" class="form-label">Deskripsi</label>
                                         <textarea id="editor" name="postdescription" required><?php echo htmlentities($row['StrukturDesc']); ?></textarea>
                                     </div>
                                    
 
                                     <div class="col-md-12">
-                                        <label for="inputNumber" class="col-sm-2 col-form-label">Current Image</label>
+                                        <label for="inputNumber" class="col-sm-2 col-form-label">Gambar Lama</label>
                                         <img src="strukimages/<?php echo htmlentities($row['Strukturimg']); ?>" width="300" />
 
                                         
                                     </div>
                                     <div class="col-md-12">
-                                        <label for="inputNumber" class="col-sm-2 col-form-label">New Image</label>
+                                        <label for="inputNumber" class="col-sm-2 col-form-label">Ganti Gambar</label>
                             
 
                                         <input class="form-control" type="file" id="formFile" id="postimage" name="postimage" required>
