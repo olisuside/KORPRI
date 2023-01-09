@@ -7,7 +7,7 @@
           <div class="col-lg-6 col-md-6 footer-contact">
             <h3>KORPRI SUKOHARJO</h3>
             <p>(0271) 593 068 <br>
-              Jl. adjfhafhadfsjagbajsg</p>
+              Jl. Jendral Sudirman No. 199 Sukoharjo</p>
           </div>
           <div class="col-lg-6 col-md-6 footer-links">
             <div class="social-links mt-3">
