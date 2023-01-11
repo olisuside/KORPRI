@@ -131,7 +131,13 @@ if (strlen($_SESSION['login']) == 0) {
                                             $ret = mysqli_query($con, "select id,CategoryName from  tblcategory");
                                             while ($result = mysqli_fetch_array($ret)) {
                                             ?>
-                                                <option value="<?php echo htmlentities($result['id']); ?>"><?php echo htmlentities($result['CategoryName']); ?></option>
+                                                <option value="<?php echo htmlentities($result['id']); ?>" <?php if( 
+                                                    $row['catid']==$result['id']){
+                                                        echo "selected";
+                                                    }
+                                                ?>
+                                                >
+                                                <?php echo htmlentities($result['CategoryName']); ?></option>
                                             <?php } ?>
 
 
