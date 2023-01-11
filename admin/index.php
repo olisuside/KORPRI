@@ -4,7 +4,10 @@ include('includes/config.php');
 error_reporting(0);
 //atur variabel
 $err        = "";
-$UserName   = "";
+
+if (isset($_SESSION['UserName'])) {
+  header("Location: dashboard.php");
+}
 
 if(isset($_POST['login'])){
   $UserName   = mysqli_real_escape_string($con,$_POST['UserName']);
@@ -16,19 +19,22 @@ if(isset($_POST['login'])){
       $sql1 = "select * from tbladmin where UserName = '$UserName'";
       $q1   = mysqli_query($con,$sql1);
       $r1   = mysqli_fetch_array($q1);
-
       if($r1['UserName'] == ''){
-          $err .= "<li>UserName <b>$UserName</b> tidak tersedia.</li>";
-      }elseif($r1['AdminPassword'] != md5($AdminPassword)){
-          $err .= "<li>Password yang dimasukkan tidak sesuai.</li>";
-      }       
-      
-      if(empty($err)){
-          $_SESSION['session_UserName'] = $UserName; //server
-          $_SESSION['session_AdminPassword'] = md5($AdminPassword);
-          $_SESSION['login']=$_POST['UserName'];
-          header("location:dashboard.php");
+        $err .= "<li>UserName <b>$UserName</b> tidak tersedia.</li>";
       }
+      elseif (password_verify($AdminPassword, $r1['AdminPassword'])) {
+        session_start();
+        $_SESSION['UserName'] = $UserName;
+        $_SESSION['session_UserName'] = $UserName; //server
+        $_SESSION['session_AdminPassword'] = md5($AdminPassword);
+        $_SESSION['login']=$_POST['UserName'];
+        header("location:dashboard.php");
+      }else {
+        $err .= "<li>Username atau Password yang dimasukkan tidak sesuai.</li>";
+        
+    }     
+      
+          
   }
 }
 ?>

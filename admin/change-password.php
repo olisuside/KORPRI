@@ -7,22 +7,26 @@ if (strlen($_SESSION['login']) == 0) {
 } else {
   
   if (isset($_POST['submit'])) {
+    
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $oldpassword = md5($_POST['oldpassword']);
-    $newpassword = md5($_POST['newpassword']);
+    $AdminPassword = $_POST['AdminPassword'];
+
+    $newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
     
       $query = mysqli_query($con, "SELECT id from tbladmin where  AdminEmail='$email' and UserName='$username' ");
       $ret = mysqli_num_rows($query);
-      if ($ret > 0) {
-        $query1 = mysqli_query($con, "UPDATE tbladmin set AdminPassword='$newpassword'  where  AdminEmail='$email' and UserName='$username' and  AdminPassword='$oldpassword'");
+      $sql1 = "select * from tbladmin where UserName = '$username'";
+    $q1   = mysqli_query($con,$sql1);
+    $r1   = mysqli_fetch_array($q1);
+      if (password_verify($AdminPassword, $r1['AdminPassword'])) {
+        $query1 = mysqli_query($con, "UPDATE tbladmin set AdminPassword='$newpassword'  where  AdminEmail='$email' and UserName='$username'");
         if ($query1) {
           echo "<script type='text/javascript'>alert('Password successfully changed');</script>";
           header("location:dashboard.php");
         }
       } else {
-
-        echo "<script type='text/javascript'>alert('Invalid Details. Please try again.');</script>";
+        $err .= "<li>Username atau Password yang dimasukkan tidak sesuai.</li>";
       }
 
   }
@@ -186,7 +190,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="row mb-3">
                       <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="oldpassword" type="password" class="form-control" id="oldpassword" autocomplete="off">
+                        <input name="AdminPassword" type="password" class="form-control" id="AdminPassword" autocomplete="off">
                       </div>
                     </div>
 
