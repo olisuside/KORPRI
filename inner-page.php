@@ -85,7 +85,7 @@ if ($result->num_rows > 0) {
                                                     echo (substr($pt, 0)); ?></p>
 
                             </div>
-                            <div class="card-footer text-muted">
+                            
 
 
                             </div>
