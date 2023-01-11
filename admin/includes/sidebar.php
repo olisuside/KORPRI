@@ -70,8 +70,15 @@
           </a>
         </li>
         <!-- End struktur Nav -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="contact.php">
+            <i class="bi bi-telephone"></i>
+            <span>Kontak</span>
+          </a>
+        </li>
+        <!-- End struktur Nav -->
 
 
-                <!-- End Blank Page Nav -->
+
       </ul>
     </aside>
