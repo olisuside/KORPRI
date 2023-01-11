@@ -134,9 +134,9 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="table-responsive text-nowrap">
 
                                     <!-- Table with hoverable rows -->
-                                    <table class="table table-hover ">
+                                    <table class="table table-hover datatable">
                                         <thead>
-                                            <tr class="table-dark">
+                                            <tr class="table-light">
                                                 <th class="class=w-75" scope="col">Judul Kegiatan</th>
                                                 <th scope="col">Gambar</th>
 
@@ -145,7 +145,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $query = mysqli_query($con, "SELECT id as postid,PostImg,PostTittle as title from tblpost where Is_Active=1 and Category=1");
+                                            $query = mysqli_query($con, "SELECT id as postid,PostImg,PostTittle as title from tblpost where Is_Active=1 and Category=1  order by tblpost.id desc");
                                             $rowcount = mysqli_num_rows($query);
                                             if ($rowcount == 0) {
                                             ?>
