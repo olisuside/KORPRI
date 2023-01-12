@@ -95,15 +95,15 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                
+
                                 <!-- Multi Columns Form -->
                                 <form name="addpost" method="post" enctype="multipart/form-data" class="row g-3 my-2 justify-content-center">
-                                <!---Message--->
-                                <div class="alert alert-danger col-12 mx-auto">
-                        <p><strong>PERHATIAN :</strong> Masukkan link sosial media seperti contoh berikut "https://www.facebook.com/TwitterInc"</p>
-                    </div>    
-                    <!-- end message -->
-                                <div class="col-md-12">
+                                    <!---Message--->
+                                    <div class="alert alert-danger col-12 mx-auto">
+                                        <p><strong>PERHATIAN :</strong> Masukkan link sosial media seperti contoh berikut "https://www.facebook.com/Jokowi"</p>
+                                    </div>
+                                    <!-- end message -->
+                                    <div class="col-md-12">
                                         <label for="inputName1" class="form-label">Alamat</label>
                                         <input name="alamat" type="text" class="form-control" id="alamat" value="<?php echo htmlentities($row['alamat']); ?>">
                                     </div>
